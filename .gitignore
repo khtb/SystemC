@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 #CMAKE generated files 
 *.cmake
+CMakeFiles
