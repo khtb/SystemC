@@ -1,4 +1,9 @@
 project(HelloWorld)
-
-add_executable(HelloWorld src/main.cpp)
+cmake_minimum_required(VERSION 3.20)
+include_directories(api/ D:/workset/Accellera/systemc/src)
+link_directories(D:/workset/Accellera/systemc/msvc10/SystemC/Debug)
+add_compile_options(/vmg)
 include_directories(api/)
+add_executable(HelloWorld src/main.cpp)
+# target_include_directories(HelloWorld PRIVATE D:/workset/Accellera/systemc/msvc10/SystemC/Debug/)
+target_link_libraries(HelloWorld PUBLIC SystemC.lib)

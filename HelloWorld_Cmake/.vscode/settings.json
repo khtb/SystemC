@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"systemc": "cpp",
+		"iomanip": "cpp"
+	}
+}
