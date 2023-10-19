@@ -2,5 +2,6 @@
 	"files.associations": {
 		"systemc": "cpp",
 		"iomanip": "cpp"
-	}
+	},
+	"workspaceKeybindings.myAwesomeTask.enabled": true 
 }
