@@ -1,10 +1,10 @@
 #include <systemc>
 using namespace sc_core;
 
-SC_MODULE(PROCESS) 
+SC_MODULE(SYSTEM) 
 {
   sc_clock clk;
-  SC_CTOR(PROCESS) : clk("clk",1,SC_SEC)
+  SC_CTOR(SYSTEM) : clk("clk",1,SC_SEC)
   {
     SC_METHOD(method);
     SC_THREAD(thread);
@@ -46,3 +46,27 @@ int sc_main(int,char*[])
   std::cout << "exection phase end @ " <<sc_time_stamp() <<std::endl;
   return 0;
 }
+
+
+
+SC_MODULE(fir)
+{
+  sc_in<bool> clk;
+  sc_in<bool> rst;
+  sc_in<sc_dt::sc_int<16>> inp;
+  sc_out<sc_dt::sc_int<16>> outp;
+
+  void fir_main();
+  SC_CTOR(fir)
+  {
+    SC_CTHREAD(fir_main,clk.pos());
+    reset_signal_is(rst,true);
+  }
+const sc_dt::sc_uint<8> coeff[5] = {18,77,107,77,18};
+
+
+};
+
+
+
+
