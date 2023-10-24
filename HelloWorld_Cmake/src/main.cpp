@@ -1,52 +1,48 @@
 #include <systemc>
 using namespace sc_core;
 
-SC_MODULE(MODULE_A)
+SC_MODULE(PROCESS) 
 {
-  SC_CTOR(MODULE_A)
+  sc_clock clk;
+  SC_CTOR(PROCESS) : clk("clk",1,SC_SEC)
   {
-    SC_METHOD(MODULE_A_METH);
+    SC_METHOD(method);
+    SC_THREAD(thread);
+    SC_CTHREAD(cthread,clk);
+
   }
-  void MODULE_A_METH( )
+
+  void method(void)
   {
-    std::cout<<name() <<std::endl;
+    std::cout<<"\033[1;31m"<< "method triggered @" << sc_time_stamp() <<"\033[0m\n";
+    next_trigger(sc_time(1,SC_SEC));
   }
+  void thread()
+  {
+    while(1)
+    {
+      std::cout << "Thread triggered @ " << sc_time_stamp() << std::endl;
+      wait(1,SC_SEC);
+    }
+  }
+
+  void cthread()
+  {
+    while(1)
+    {
+      std::cout << "cthread triggered @ " << sc_time_stamp() << std::endl;
+      wait();
+    }
+  }
+
 };
 
-SC_MODULE(MODULE_B)
-{
-  SC_CTOR(MODULE_B)
-  {
-    SC_METHOD(MODULE_B_METH);
-  }
-  void MODULE_B_METH();
-
-};
-void MODULE_B::MODULE_B_METH()
-{
-  std::cout << this->name() << std::endl;
-}
-
-SC_MODULE(MODULE_C)
-{
-  const int i;
-  SC_CTOR(MODULE_C);
-  MODULE_C(sc_module_name name, int i): sc_module(name),i(i)
-  {
-    SC_METHOD(function_c);
-  }
-  void function_c()
-  {
-    std::cout << name() << ", i = " << i << std::endl;
-  }
-};
 
 int sc_main(int,char*[])
 {
-  MODULE_A modA("module_a");
-  MODULE_B modB("module_b");
-  // MODULE_B modB12("module_b");
-  MODULE_C modc("module_c",10);
-  sc_start();
+  PROCESS prcess("process");
+  std::cout << "exection phase begins @ " <<sc_time_stamp() <<std::endl;
+  sc_start(5,SC_SEC);
+  std::cout << "exection phase end @ " <<sc_time_stamp() <<std::endl;
   return 0;
 }

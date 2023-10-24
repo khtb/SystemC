@@ -1,7 +1,10 @@
 {
 	"files.associations": {
 		"systemc": "cpp",
-		"iomanip": "cpp"
+		"iomanip": "cpp",
+		"iostream": "cpp",
+		"iosfwd": "cpp",
+		"ostream": "cpp"
 	},
 	"workspaceKeybindings.myAwesomeTask.enabled": true 
 }
