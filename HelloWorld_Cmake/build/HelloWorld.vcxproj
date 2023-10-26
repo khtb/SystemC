@@ -319,6 +319,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="D:\workset\SystemC\HelloWorld_Cmake\src\main.cpp" />
     <ClCompile Include="D:\workset\SystemC\HelloWorld_Cmake\src\fir.cpp" />
+    <ClCompile Include="D:\workset\SystemC\HelloWorld_Cmake\src\fir_tb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\workset\SystemC\HelloWorld_Cmake\build\ZERO_CHECK.vcxproj">

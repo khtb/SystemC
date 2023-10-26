@@ -4,7 +4,11 @@
 		"iomanip": "cpp",
 		"iostream": "cpp",
 		"iosfwd": "cpp",
-		"ostream": "cpp"
+		"ostream": "cpp",
+		"atomic": "cpp",
+		"condition_variable": "cpp",
+		"memory": "cpp",
+		"mutex": "cpp"
 	},
 	"workspaceKeybindings.myAwesomeTask.enabled": true 
 }

@@ -7,6 +7,9 @@
     <ClCompile Include="D:\workset\SystemC\HelloWorld_Cmake\src\fir.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\workset\SystemC\HelloWorld_Cmake\src\fir_tb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\workset\SystemC\HelloWorld_Cmake\CMakeLists.txt" />

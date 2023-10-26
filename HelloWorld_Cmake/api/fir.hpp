@@ -17,7 +17,5 @@ SC_MODULE(fir)
     SC_CTHREAD(fir_main,clk.pos());
     reset_signal_is(rst,true);
   }
-const sc_dt::sc_uint<8> coeff[5] = {18,77,107,77,18};
-
 };
 
